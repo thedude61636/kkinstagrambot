@@ -1,5 +1,5 @@
 module kkinstagrambot
 
-go 1.26.1
+go 1.24.0
 
 require github.com/go-telegram/bot v1.19.0
