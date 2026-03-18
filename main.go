@@ -51,6 +51,14 @@ func main() {
 	b.Start(ctx)
 }
 
+func convertLink(foundLink string) string {
+	newLink := strings.Replace(foundLink, "instagram.com", "kkinstagram.com", 1)
+	if idx := strings.Index(newLink, "?"); idx != -1 {
+		newLink = newLink[:idx]
+	}
+	return newLink
+}
+
 func handler(ctx context.Context, b *bot.Bot, update *models.Update) {
 	// Handle inline queries
 	if update.InlineQuery != nil {
@@ -87,8 +95,8 @@ func handler(ctx context.Context, b *bot.Bot, update *models.Update) {
 	// Check for Instagram links
 	foundLink := instaRegex.FindString(update.Message.Text)
 	if foundLink != "" {
-		// Convert to kkinstagram
-		newLink := strings.Replace(foundLink, "instagram.com", "kkinstagram.com", 1)
+		// Convert to kkinstagram and strip query params
+		newLink := convertLink(foundLink)
 
 		// Reply to user
 		_, err := b.SendMessage(ctx, &bot.SendMessageParams{
@@ -118,8 +126,8 @@ func handleInlineQuery(ctx context.Context, b *bot.Bot, query *models.InlineQuer
 		return
 	}
 
-	// Convert the link
-	newLink := strings.Replace(foundLink, "instagram.com", "kkinstagram.com", 1)
+	// Convert the link and strip query params
+	newLink := convertLink(foundLink)
 
 	// Create a single result article
 	result := &models.InlineQueryResultArticle{
