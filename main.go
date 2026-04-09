@@ -18,7 +18,7 @@ const githubLink = "https://github.com/thedude61636/kkinstagrambot"
 // welcomeMessage is sent when /start is used
 const welcomeMessage = `Hello! I am the KKInstagram Bot. 🤖
 
-I automatically convert instagram.com links into kkinstagram.com links so they embed nicely in Telegram! 
+I automatically convert instagram.com links into kksave.com links so they embed nicely in Telegram! 
 
 Here is how to use me:
 1. Add me to a group, and I'll automatically reply to any Instagram links with the converted link.
@@ -52,7 +52,7 @@ func main() {
 }
 
 func convertLink(foundLink string) string {
-	newLink := strings.Replace(foundLink, "instagram.com", "kkinstagram.com", 1)
+	newLink := strings.Replace(foundLink, "instagram.com", "kksave.com", 1)
 	if idx := strings.Index(newLink, "?"); idx != -1 {
 		newLink = newLink[:idx]
 	}
@@ -132,7 +132,7 @@ func handleInlineQuery(ctx context.Context, b *bot.Bot, query *models.InlineQuer
 	// Create a single result article
 	result := &models.InlineQueryResultArticle{
 		ID:    query.ID,
-		Title: "Send KKInstagram Link",
+		Title: "Send KKSave Link",
 		InputMessageContent: &models.InputTextMessageContent{
 			MessageText: newLink,
 		},

@@ -1,12 +1,12 @@
 # KKInstagram Bot
 
-A lightweight, zero-configuration Telegram Bot written in Go that automatically converts `instagram.com` links into `kkinstagram.com` links.
+A lightweight, zero-configuration Telegram Bot written in Go that automatically converts `instagram.com` links into `kksave.com` links.
 
 This bot is designed to be extremely resource-efficient, securely compiled down to a minimal binary, and easily deployed via Docker to any VPS (like Dokploy).
 
 ## Features
 
-- **Passive Conversion:** Add the bot to any group (with Privacy Mode disabled) and it will automatically monitor chat for `instagram.com` URLs, replying to the user with the corrected `kkinstagram.com` URL so the embed previews load properly.
+- **Passive Conversion:** Add the bot to any group (with Privacy Mode disabled) and it will automatically monitor chat for `instagram.com` URLs, replying to the user with the corrected `kksave.com` URL so the embed previews load properly.
 - **Direct Messages:** DM the bot an Instagram link and it will convert it immediately.
 - **Inline Queries:** Type `@yourbotname https://instagram.com/p/something` in *any* Telegram chat box, and a popup will appear allowing you to send the converted link instantly without adding the bot to the group.
 
